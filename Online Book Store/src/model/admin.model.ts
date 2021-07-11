@@ -26,5 +26,5 @@ let adminSchema: Schema = new Schema({
     }
 });
 
-let UserModel = mongoose.model<Admin>("Admin", adminSchema);
-export default UserModel;
+let AdminModel = mongoose.model<Admin>("Admin", adminSchema);
+export default AdminModel;

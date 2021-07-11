@@ -2,9 +2,9 @@
   "name": "online-book-store",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/app.js",
   "scripts": {
-      "start":"node ."
+      "start":"node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

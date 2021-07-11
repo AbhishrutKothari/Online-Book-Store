@@ -28,5 +28,5 @@ let bookSchema: Schema = new Schema({
     
 });
 
-let UserModel = mongoose.model<Book>("Customer", bookSchema);
-export default UserModel;
+let BookModel = mongoose.model<Book>("Customer", bookSchema);
+export default BookModel;

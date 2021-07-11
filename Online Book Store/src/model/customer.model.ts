@@ -12,25 +12,25 @@ interface Customer extends Document {
 let customerSchema: Schema = new Schema({
     custId:{
         type: Number,
-        
+        required:true
     },
     name: {
         type: String,
-        
+        required: true
     },
     email: {
         type: String,
-       
+        required: true
     },
     phoneNumber: {
         type: String,
-        
+        required: true
     },
     password: {
         type: String,
-        
+        required: true
     }
 });
 
-let UserModel = mongoose.model<Customer>("Customer", customerSchema);
-export default UserModel;
+let CustomerModel = mongoose.model<Customer>("Customer", customerSchema);
+export default CustomerModel;

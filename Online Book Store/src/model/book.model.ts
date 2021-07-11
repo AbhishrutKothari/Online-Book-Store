@@ -28,5 +28,5 @@ let bookSchema: Schema = new Schema({
     
 });
 
-let BookModel = mongoose.model<Book>("Customer", bookSchema);
+let BookModel = mongoose.model<Book>("Books", bookSchema);
 export default BookModel;

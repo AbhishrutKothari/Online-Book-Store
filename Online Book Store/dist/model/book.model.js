@@ -38,5 +38,5 @@ var bookSchema = new mongoose_1.Schema({
         required: true,
     }
 });
-var BookModel = mongoose_1.default.model("Customer", bookSchema);
+var BookModel = mongoose_1.default.model("Books", bookSchema);
 exports.default = BookModel;

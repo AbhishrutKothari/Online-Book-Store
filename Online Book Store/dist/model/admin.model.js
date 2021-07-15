@@ -21,15 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = __importStar(require("mongoose"));
 var adminSchema = new mongoose_1.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
     email: {
-        type: String,
-        required: true,
-    },
-    phoneNumber: {
         type: String,
         required: true,
     },

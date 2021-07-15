@@ -26,13 +26,15 @@ const createCustomer = (req: Request, res: Response) => {
 };
 
 const updateCustomerById = (req: Request, res: Response) => {
-    CustomerModel.findByIdAndUpdate(req.params.id, { $set: req.body }, (err: any) => {
+    let cid = req.params.id
+    CustomerModel.findByIdAndUpdate({_id: cid}, {$set: req.body}, (err: any) => {
         if (!err) {
             res.json({ message: "Updated successfully" });
-        } else {
-            res.json({ message: "ID does not exist" });
         }
-    });
+        else {
+            res.json({ message: "Id does not exist" });
+        }
+    })
 };
 
 const deleteCustomerById = (req: Request, res: Response) => {
@@ -80,6 +82,6 @@ const getBookByAuthor = (req: Request, res: Response) => {
     });
 };
 
-export { getUserById, createCustomer, updateCustomerById, deleteCustomerById, getAllBooks, getBookById, getBookByAuthor};
+export { getUserById, createCustomer, updateCustomerById, deleteCustomerById, getAllBooks, getBookById, getBookByAuthor };
 
 

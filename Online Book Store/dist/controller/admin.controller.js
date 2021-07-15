@@ -42,7 +42,8 @@ var createUser = function (req, res) {
 };
 exports.createUser = createUser;
 var updateUser = function (req, res) {
-    admin_model_1.default.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err) {
+    var uid = req.params.id;
+    admin_model_1.default.findByIdAndUpdate({ _id: uid }, { $set: req.body }, function (err) {
         if (!err) {
             res.json({ message: "Updated successfully" });
         }

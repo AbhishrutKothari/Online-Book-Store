@@ -36,7 +36,8 @@ const createUser = (req: Request, res: Response) => {
 };
 
 const updateUser = (req: Request, res: Response) => {
-    AdminModel.findByIdAndUpdate(req.params.id, { $set: req.body }, (err: any) => {
+    let uid = req.params.id
+    AdminModel.findByIdAndUpdate({_id: uid}, {$set: req.body}, (err: any) => {
         if (!err) {
             res.json({ message: "Updated successfully" });
         } else {
@@ -59,13 +60,6 @@ const deleteUser = (req: Request, res: Response) => {
         }
     });
 };
-
-
-
-
-
-
-
 
 
 

@@ -31,12 +31,13 @@ var createCustomer = function (req, res) {
 };
 exports.createCustomer = createCustomer;
 var updateCustomerById = function (req, res) {
-    customer_model_1.default.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err) {
+    var cid = req.params.id;
+    customer_model_1.default.findByIdAndUpdate({ _id: cid }, { $set: req.body }, function (err) {
         if (!err) {
             res.json({ message: "Updated successfully" });
         }
         else {
-            res.json({ message: "ID does not exist" });
+            res.json({ message: "Id does not exist" });
         }
     });
 };

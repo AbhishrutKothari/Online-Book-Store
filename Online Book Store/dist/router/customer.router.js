@@ -27,6 +27,7 @@ var express_1 = __importDefault(require("express"));
 var customerController = __importStar(require("../controller/customer.controller"));
 exports.router = express_1.default();
 exports.router.get("/:id", customerController.getUserById);
+exports.router.get('/', customerController.getAllUsers);
 exports.router.post("/createCustomer", customerController.createCustomer);
 exports.router.put("/updateCustomer/:id", customerController.updateCustomerById);
 exports.router.delete("/deleteCustomer/:id", customerController.deleteCustomerById);

@@ -3,9 +3,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getBookByAuthor = exports.getBookById = exports.getAllBooks = exports.deleteCustomerById = exports.updateCustomerById = exports.createCustomer = exports.getUserById = void 0;
+exports.getBookByAuthor = exports.getBookById = exports.getAllBooks = exports.deleteCustomerById = exports.updateCustomerById = exports.createCustomer = exports.getUserById = exports.getAllUsers = void 0;
 var customer_model_1 = __importDefault(require("../model/customer.model"));
 var book_model_1 = __importDefault(require("../model/book.model"));
+var getAllUsers = function (req, res) {
+    customer_model_1.default.find({}, function (err, doc) {
+        if (!err) {
+            res.json(doc);
+        }
+        else {
+            res.json(err);
+        }
+    });
+};
+exports.getAllUsers = getAllUsers;
 var getUserById = function (req, res) {
     customer_model_1.default.findById(req.params.id, function (err, doc) {
         if (!err) {

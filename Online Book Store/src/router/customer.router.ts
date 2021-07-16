@@ -5,6 +5,7 @@ import * as customerController from "../controller/customer.controller";
 export let router: Router = express();
 
 router.get("/:id", customerController.getUserById);
+router.get('/', customerController.getAllUsers);
 router.post("/createCustomer", customerController.createCustomer);
 router.put("/updateCustomer/:id", customerController.updateCustomerById);
 router.delete("/deleteCustomer/:id", customerController.deleteCustomerById);

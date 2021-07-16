@@ -2,6 +2,16 @@ import { Request, Response } from "express";
 import CustomerModel from "../model/customer.model";
 import BookModel from "../model/book.model";
 
+const getAllUsers = (req: Request, res: Response) => {
+    CustomerModel.find({}, (err: any, doc: any) => {
+        if (!err) {
+            res.json(doc);
+        } else {
+            res.json(err);
+        }
+    });
+};
+
 const getUserById = (req: Request, res: Response) => {
     CustomerModel.findById(req.params.id, (err: any, doc: any) => {
         if (!err) {
@@ -82,6 +92,6 @@ const getBookByAuthor = (req: Request, res: Response) => {
     });
 };
 
-export { getUserById, createCustomer, updateCustomerById, deleteCustomerById, getAllBooks, getBookById, getBookByAuthor };
+export { getAllUsers, getUserById, createCustomer, updateCustomerById, deleteCustomerById, getAllBooks, getBookById, getBookByAuthor };
 
 

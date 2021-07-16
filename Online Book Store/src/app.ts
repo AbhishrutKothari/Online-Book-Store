@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import { router as adminRouter } from "./router/admin.router";
 import { router as cutomerRouter } from "./router/customer.router";
+var cors = require('cors')
 
 let url =
     "mongodb+srv://bookStore:C9HWxKzQ7MPpoeXT@meanstack.mylhg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
@@ -17,7 +18,7 @@ mongoose.connection;
 let app: Application = express();
 
 app.use(bodyParser.json());
-
+app.use(cors())
 app.use("/api/admin", adminRouter);
 app.use("/api/customer", cutomerRouter);
 

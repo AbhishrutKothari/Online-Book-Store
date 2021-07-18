@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-search-book-by-id',
+  templateUrl: './search-book-by-id.component.html',
+  styleUrls: ['./search-book-by-id.component.css']
+})
+export class SearchBookByIdComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

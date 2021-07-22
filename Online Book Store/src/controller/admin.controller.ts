@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import AdminModel from "../model/admin.model";
 import BookModel from "../model/book.model";
 
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
 const getAllUsers = (req: Request, res: Response) => {
     AdminModel.find({}, (err: any, doc: any) => {
         if (!err) {
@@ -24,6 +27,8 @@ const getUserById = (req: Request, res: Response) => {
 
 const createUser = (req: Request, res: Response) => {
     const user = req.body;
+    user.password = hashPassword(user.password)
+    console.log(user)
     const newUser = new AdminModel(user);
 
     newUser.save((err: any) => {
@@ -34,6 +39,54 @@ const createUser = (req: Request, res: Response) => {
         }
     });
 };
+
+const logUser = async (req: Request, res: Response) => {
+    const login = {
+        email: req.body.email,
+        password: req.body.password
+    }
+    try {
+        let user = await AdminModel.findOne({
+            email: login.email
+        })
+        console.log(user)
+        if (!user) {
+            res.status(400).json({
+                type: "Not found",
+                msg: "Wrong credentials"
+            })
+        }
+        console.log(user)
+        let match = compareUserPassword(login.password, user?.password)
+        console.log(user?.password)
+        if (match) {
+            let token = generateJwtToken({
+                user
+            }, "secret" , {
+                expiresIn: 10000
+            })
+            if (token) {
+                res.status(200).json({
+                    success: true,
+                    token: token,
+                    userCredentials: user
+                })
+            }
+        }
+        else {
+            res.status(400).json({
+                type: "Not found",
+                msg: "Incorrect credentials"
+            })
+        }
+    }
+    catch(err) {
+        res.status(500).json({
+            msg: err,
+            type: "Something went wrong"
+        })
+    }
+}
 
 const updateUser = (req: Request, res: Response) => {
     let uid = req.params.id
@@ -61,7 +114,15 @@ const deleteUser = (req: Request, res: Response) => {
     });
 };
 
-
+let hashPassword =  (password:any) => {             // this function is use to convert our password in encript format. 
+    return bcrypt.hashSync(password, 10);          
+}
+let compareUserPassword = (inputtedPassword:any, hashedPassword:any) => {
+   return bcrypt.compare(inputtedPassword, hashedPassword)
+}
+let generateJwtToken = (payload:any, secret:any, expires:any) => {
+   return jwt.sign(payload, secret, expires)
+}
 
 const getAllBooks = (req: Request, res: Response) => {
     BookModel.find({}, (err: any, doc: any) => {
@@ -121,4 +182,4 @@ const deleteBook = (req: Request, res: Response) => {
     });
 };
 
-export { getAllUsers, getUserById, createUser, deleteUser, updateUser, getAllBooks, getBookById, insertBook, updateBook, deleteBook };
+export { getAllUsers, getUserById, createUser, logUser, deleteUser, updateUser, getAllBooks, getBookById, insertBook, updateBook, deleteBook };

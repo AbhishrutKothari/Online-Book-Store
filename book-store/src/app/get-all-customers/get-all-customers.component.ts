@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Users } from '../users.model';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-get-all-customers',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./get-all-customers.component.css']
 })
 export class GetAllCustomersComponent implements OnInit {
-
-  constructor() { }
+  users: Array<Users> = [];
+  constructor(public us: UsersService) { }
 
   ngOnInit(): void {
+  }
+  loadData() {
+    this.us.getAllUsers().subscribe(result => this.users = result,
+      error => console.log(error))
+
+
   }
 
 }

@@ -1,7 +1,7 @@
 export class Books {
     constructor(public _id: string,
         public bookId: number,
-        public bookName: string,
+        public name: string,
         public author: string,
-        public noOfBooks: number){}
+        public numberOfBooks: number){}
 }

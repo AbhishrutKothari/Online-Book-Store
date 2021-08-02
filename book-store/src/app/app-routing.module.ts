@@ -19,11 +19,8 @@ const routes: Routes = [
 {path:"admin/addBooks",component:AddBooksComponent},
 {path:"login",component:LoginComponent},
 {path:"signup",component:SignupComponent},
-<<<<<<< HEAD
 {path:"",redirectTo:"login",pathMatch:"full"}
-=======
 {path:"dashboard",component:DashboardComponent}
->>>>>>> main
 
 ];
 

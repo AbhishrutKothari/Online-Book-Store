@@ -1,1 +1,47 @@
-<p>login works!</p>
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+        <div class="container">
+            <!-- Navbar Brand -->
+            <a href="#" class="navbar-brand">
+               <h1>ONLINE BOOK STORE</h1>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="row py-5 mt-4 align-items-center">
+        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+            <img src="https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
+            <h1>Login to your account</h1>
+            <p class="font-italic text-muted mb-0">Sign In Now to get the best books delivered to you at once.</p>
+        </div>
+        <div class="col-md-7 col-lg-6 ml-auto">
+            <form action="#">
+                <div class="row">
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-envelope text-muted"></i>
+                                <label>Email</label>
+                            </span>
+                        </div>
+                        <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                                <label>Password</label>
+                            </span>
+                        </div>
+                        <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <div class="text-center w-100">
+                        <p class="text-muted font-weight-bold">New one? <a routerLink="signup" class="text-primary ml-2">Sign up</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

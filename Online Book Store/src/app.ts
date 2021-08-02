@@ -3,7 +3,12 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import { router as adminRouter } from "./router/admin.router";
 import { router as cutomerRouter } from "./router/customer.router";
+<<<<<<< HEAD
 import { router as authRouter } from "./router/auth.router";
+=======
+import { router as bookRouter } from "./router/book.router";
+
+>>>>>>> main
 var cors = require('cors')
 
 let url =
@@ -22,7 +27,11 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use("/api/admin", adminRouter);
 app.use("/api/customer", cutomerRouter);
+<<<<<<< HEAD
 app.use("/api/auth", authRouter);
+=======
+app.use("/api/book", bookRouter);
+>>>>>>> main
 
 let PORT = 9090;
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

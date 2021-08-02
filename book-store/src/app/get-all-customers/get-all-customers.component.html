@@ -1,1 +1,27 @@
-<p>get-all-customers works!</p>
+<div class="container">
+    <div class="container">
+    <input type="button" value="Get All Users" (click)="loadData()"/><br/>
+    <div>
+    <table class="table table-striped">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Customer ID</th>
+          <th>Email</th>
+          <th>Customer Name</th>
+          
+          <th>Customer Phone Number</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let u of users">
+                    <td>{{u._id}}</td>
+                    <td>{{u.custId}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.name}}</td>
+                    
+                    <td>{{u.phoneNumber}}</td>
+            </tr>
+  </tbody>
+</table>
+</div>

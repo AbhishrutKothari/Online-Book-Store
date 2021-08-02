@@ -11,6 +11,6 @@ export class UsersService {
   constructor(public http: HttpClient) { }
 
   getAllUsers():Observable<Users[]> {
-    return this.http.get<Users[]>(this.rootUrl)
+    return this.http.get<Users[]>(this.rootUrl);
   }
 }

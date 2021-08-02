@@ -17,7 +17,8 @@ const routes: Routes = [
 {path:"admin/searchCustomers",component:SearchCustomerByIdComponent},
 {path:"admin/addBooks",component:AddBooksComponent},
 {path:"login",component:LoginComponent},
-{path:"signup",component:SignupComponent}
+{path:"signup",component:SignupComponent},
+{path:"",redirectTo:"login",pathMatch:"full"}
 
 ];
 
